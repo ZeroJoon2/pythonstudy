@@ -3,200 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type = 'text/css' rel="stylesheet" href = './index.css'>
     <title>ZeroJoon2</title>
-    <style>
-        body {
-            background-color: black;
-            color: black;
-            width:100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-        .container{
-            background-color: rgb(255, 220, 220);
-            width:50%;
-            height: auto;
-            margin : auto;
-            padding-bottom: 1%;
-            
-        }
-
-        .text{
-            margin-left : 50px;
-
-        }
-        
-
-        .details{
-            margin-left: 50px;
-
-        }
-        .main_header h1{
-            background-color: #ff7373;
-            color: white;
-            padding: 20px;
-            display: block;
-            text-align: center;
-            text-shadow: 
-                1px 3px 0px black,  /* 오른쪽 아래 */
-                -1px 1.5px 0px black, /* 왼쪽 아래 */
-                1px -1.5px 0px black, /* 오른쪽 위 */
-                -1px -1px 0px black; /* 왼쪽 위 */
-        }
-
-        .image-container{
-            display: flex;
-            justify-content: center;
-            gap : 90px;
-        }
-        #profile {
-            width : 180px;
-            height : 240px;
-            display: inline-block;
-
-        }
-
-        .header{
-            color: hsl(0, 100%, 73%);
-            display : block;
-            text-shadow: 
-                1px 3px 0px black,  /* 오른쪽 아래 */
-                -1px 1.5px 0px black, /* 왼쪽 아래 */
-                1px -1.5px 0px black, /* 오른쪽 위 */
-                -1px -1px 0px black; /* 왼쪽 위 */
-        }
-        
-        #notion_link{
-            color: rgb(86, 117, 255);
-        }
-        .table_all{
-            
-            width: 95%;
-            border-collapse: collapse;
-        }
-
-        .table_all th, .table_rows td{
-            border: 2px solid;
-            border-color: hsl(0, 100%, 73%);
-            border-radius: 10px;
-            text-align: center;
-        }
-        .table_header0, .table_header{
-            background-color: rgb(59, 95, 255);
-            color : white;
-        }
-        .table_header, .table_rows tr{
-            background-color: rgb(207, 216, 255);
-            color: rgb(59, 95, 255);
-            font-style : bold;
-            
-        }
-        
-    </style>
 </head>
 <body>
-    <div class = 'container'>
-        <div class = main_header>
-            <h1> 안녕하세요 반갑습니다🙌</h1>
-        </div>
-        <div class = image-container>
-            <img id = 'profile' src = '../img/profile1.jpg' alt = '이미지 안보여줌' >
-            <img id = 'profile' src = '../img/profile2.jpg' alt = '이미지 안보여줌' >
-            <img id = 'profile' src = '../img/profile3.jpg' alt = '이미지 안보여줌' >
-        </div>
-        <div class = 'text'>
-            <h2 class = 'header'>🤷‍♀️ 한 줄 소개</h2>
-                <div class = details>
-                    저는 <strong>Python</strong>으로 <strong>데이터 분석</strong>을 잘하는 <strong>최영준</strong>입니다. <a id = 'notion_link' href = 'https://ymjoon2.notion.site/27cc0a25eda3440d816f092a4a06e002' target="_blank"><strong>✅더 자세히 알아보기(Notion)✅</strong></a>
-                </div>
-            
-            <h2 class = 'header'>🤷‍♀️ 현재 관심사</h2>
-                <div class = 'details'>
-                    <li>python</li>
-                    <li>데이터 분석</li>
-                    <li>BI 시각화</li>
-                    <li>통계</li>
-                </div>
+    <main class = 'container'>
+        <header class = main_header>
+            <h1>
+                한 페이지로 보는 <text style = 'color : rgb(86, 117, 255)'>최영준</text> 소개 페이지👍
+            </h1>
+            <text style = 'color : rgb(86, 117, 255)'><strong>어느 환경</strong></text>에서도 살아남을 수 있는, <text style = 'color : rgb(86, 117, 255)'><strong>기술</strong></text>과 <text style = 'color : rgb(86, 117, 255)'><strong>통찰력</strong></text>을 겸비한 <text style = 'color : rgb(86, 117, 255)'><strong>전문가</strong></text>
+        </header>
 
-            <h2 class = 'header'>
-                🤷‍♀️ 인생 목표
-            </h2>
-                <div class = 'details'>
-                    <strong>어느 환경</strong>에서도 살아남을 수 있는, <strong>기술</strong>과 <strong>통찰력</strong>을 겸비한 전문가
-                </div>    
+        <section class = image-container>
+            <img class = 'profile' src = '../img/profile1.jpg' alt = '이미지 안보여줌' >
+            <img class = 'profile' src = '../img/profile2.jpg' alt = '이미지 안보여줌' >
+            <img class = 'profile' src = '../img/profile3.jpg' alt = '이미지 안보여줌' >
+        </section>
+        <section class = 'text'>
+            <article>
+                <h2 class = 'header'>🤷‍♀️ 한 줄 소개 </h2>
+                    <div class = details>
+                        저는 <strong class = 'color_font'>Python</strong>으로 <strong class = 'color_font'>데이터 분석</strong>을 잘하는 <strong>최영준</strong>입니다.
+                        <br>
+                        <br>
+                        <div class = details_2> 
+                            ✅더 자세히 알아보기✅
+                            <br>
+                            <div class = details_3> 
+                                <a id = 'gpt_link' href="https://joon2.netlify.app/" target="_blank"><img id = gpt src = '../img/gpt.png'><br>💎 GPT 활용 능력</a>
+    
+                                <a id = 'git_link' href = 'https://github.com/ZeroJoon2' target="_blank"><strong></strong><img id = git src = '../img/git.png'><br>🎴 Git</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </article>
+            <article>
+                <h2 class = 'header'>🤷‍♀️ 현재 관심사</h2>
+                    <div class = 'details'>
+                        <ul class = 'bullet_changed_list'>
+                                <li>python</li>
+                                <li>데이터 분석</li>
+                                <li>BI 시각화</li>
+                                <li>통계</li>                            
+                        </ul>
+                    </div>
+            </article>
 
-            <h2 class = 'header'>
-                🤷‍♀️ 관심사별 비율
-            </h2>
-                <div class = 'details'>
-                    <table class = table_all>
-                    <tr class = 'table_header'>
-                            <th>범주</th>
-                            <th>관심분야</th>
-                            <th>집중비율</th>
-                        </tr>
-                        <tr class = 'table_rows'>
-                            <td>프로그래밍</td>
-                            <td>Python Code</td>
-                            <td>40%</td>
-                        </tr>
-
-                        <tr class = 'table_rows'>
-                            <td>사고력</td>
-                            <td>데이터 분석</td>
-                            <td>40%</td>
-                        </tr>
-
-                        <tr class = 'table_rows'>
-                            <td>실행력</td>
-                            <td>통계를 통한 의미 창출</td>
-                            <td>20%</td>
-                        </tr>
-                    </table>
-                </div>
-
+            <!--
+            <article>
                 <h2 class = 'header'>
-                    🤷‍♀️ 주요 커리어
+                    🤷‍♀️ 인생 목표
+                </h2>
+                    <div class = 'details'>
+                        <strong>어느 환경</strong>에서도 살아남을 수 있는, <strong>기술</strong>과 <strong>통찰력</strong>을 겸비한 전문가
+                    </div>
+            </article>
+            -->
+
+            <article>
+                <h2 class = 'header'>
+                    🤷‍♀️ 관심사별 비율
                 </h2>
                     <div class = 'details'>
                         <table class = table_all>
-                            <tr class = 'table_header0'>
-                                <th colspan="5" class = 'table_header0'> 총 근무 기간 : 3년 이상</th>
+                        <tr class = 'table_header'>
+                                <th>범주</th>
+                                <th>관심분야</th>
+                                <th>집중비율</th>
+                            </tr>
+                            <tr class = 'table_rows'>
+                                <td>프로그래밍</td>
+                                <td>Python Code</td>
+                                <td>40%</td>
                             </tr>
 
-                            <tr class = 'table_header'>
-                                <th>회사명</th>
-                                <th>근무시작</th>
-                                <th>근무종료</th>
-                                <th>직급</th>
-                                <th>주요 업무</th>    
-                            </tr>
-                            
                             <tr class = 'table_rows'>
-                                <div class = 'td1'>
-                                    <td>진학어플라이(진학사)</td>
-                                    <td>2021.06.21</td>
-                                    <td>2024.04.30</td>
-                                    <td>솔루션사업부 종합평가파트장</td>
-                                    <td>B2B 입학팀 SW 솔루션 기획/운영</td>
-                                </div>
+                                <td>사고력</td>
+                                <td>데이터 분석</td>
+                                <td>40%</td>
                             </tr>
-                            
+
                             <tr class = 'table_rows'>
-                                <div class = 'td2'>
-                                    <td>리딩스타</td>
-                                    <td>2024.05.27</td>
-                                    <td>2024.09.25</td>
-                                    <td>경영본부 대리</td>
-                                    <td>영어도서관/ 학습관리 SW 시스템 기획/운영</td>
-                                </div>
+                                <td>실행력</td>
+                                <td>통계를 통한 의미 창출</td>
+                                <td>20%</td>
                             </tr>
                         </table>
-                    </div>    
-                        
-            </div>
-        
-    </div>   
+                    </div>
+            </article>
+        </section>
+    </main>
+    
 </body>
 </html>

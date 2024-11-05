@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<script>
+		let x, y;
+		let input;
+	
+		input = prompt("정수를 입력하시오", "정수로");
+		x = parseInt(input);
+	
+		input = prompt("정수를 입력하시오", "정수로");
+		y = parseInt(input);
+
+		console.log(x, y);
+
+	
+		document.write(x+y + "<br>");
+	</script>
+	
+<body>
+    <script>
+        function func() {
+            document.write("페이지가 적재된 후에 write()를 사용하면 다시 씌여집니다.");
+        }
+    </script>
+    <button type="button" onclick="func()">클릭하세요!</button>
+
+	<h1 id="test">This is a heading.</h1>
+
+	<script>
+        function func1() {
+            e = document.getElementById("test");
+            e.style.color = "red";
+        }
+   </script>
+    <button type="button1" onclick="func1()">클릭하세요! 1</button>
+
+</body>
+</html>
