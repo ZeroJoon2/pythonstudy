@@ -121,18 +121,41 @@ body {
     gap : 120px;
     overflow: hidden;
 }
+.image-box {
+    position: relative;
+    text-align: center;
+    width: 150px;
+}
 
+.image-text {
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
 .profile {
     width : 150px;
     height : 200px;
     display: inline-block;
     transition: transform 0.5s ease;
+    opacity: 40%;
 }
 
 .profile:hover{
     transform : scale(180%);
+    opacity: 100%;
     
 }
+
+
 
 .header{
     margin-top: 10px;
@@ -168,4 +191,52 @@ body {
     color: rgb(59, 95, 255);
     font-style : bold;
     
+}
+/* 다크 모드 스타일 */
+
+#darkModeToggle{
+    position: absolute;
+    top: 1.5%;
+    right: 25%;
+    padding: 10px 15px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dark-mode #darkModeToggle{
+    position: absolute;
+    top: 1.5%;
+    right: 25%;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.dark-mode {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+.dark-mode .header, .dark-mode .container {
+    background-color: #1c1c1c;
+}
+
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }

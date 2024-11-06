@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>햄버거 메뉴</title>
+    <style>
+        /* Reset basic styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Body styling */
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            background: linear-gradient(135deg, #FFAFBD, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Main container styling */
+        .menu-container {
+            max-width: 700px;
+            margin: 20px;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Title styling */
+        .menu-title {
+            font-size: 32px;
+            color: #d35400;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Menu item styling */
+        .menu-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+        }
+
+        /* Item name styling */
+        .item-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4A90E2;
+            margin-bottom: 8px;
+        }
+
+        /* Item description styling */
+        .item-description {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        /* Item price styling */
+        .item-price {
+            font-size: 18px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Button styling */
+        .order-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #e74c3c;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .order-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-item">
+            <div class="item-name">클래식 버거</div>
+            <div class="item-description">신선한 양상추, 토마토, 치즈가 들어간 기본 햄버거</div>
+            <div class="item-price">₩6,000</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">치즈 버거</div>
+            <div class="item-description">진한 치즈와 육즙 가득한 패티가 조화를 이룬 햄버거</div>
+            <div class="item-price">₩7,000</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">베이컨 버거</div>
+            <div class="item-description">바삭한 베이컨과 특제 소스가 들어간 햄버거</div>
+            <div class="item-price">₩8,000</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">스파이시 버거</div>
+            <div class="item-description">매콤한 소스와 신선한 재료가 어우러진 햄버거</div>
+            <div class="item-price">₩7,500</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-name">아보카도 버거</div>
+            <div class="item-description">고소한 아보카도가 들어간 프리미엄 햄버거</div>
+            <div class="item-price">₩9,000</div>
+        </div>
+    </div>
+</body>
+</html>
