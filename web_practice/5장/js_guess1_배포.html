@@ -1,0 +1,93 @@
+﻿<html>
+
+<head>
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        let computerNumber = Math.floor(Math.random() * 100) + 1;
+        let nGuesses = 0;
+
+        function guess() {
+            
+            let inputnumber = document.getElementById('userinput').value;
+            if (inputnumber == computerNumber){
+                result = '성공입니다.';
+            } else if (inputnumber > computerNumber){
+                result = '낮추세요 숫자';
+            } else if (inputnumber < computerNumber){
+                result = '올리세요 숫자';
+            }  
+            nGuesses ++; // count 증가 시킴
+            document.getElementById('hint').value = result;
+            document.getElementById('usercount').value = nGuesses;
+            
+            return true;
+        }
+        console.log(computerNumber)
+    </script>
+</head>
+
+<body>
+    <h2>숫자 맞추기 게임</h2>
+    1부터 100사이의 숫자를 맞춥시다.
+    <form>
+        숫자를 입력하세요 <input type = 'number' id = 'userinput' size = 10 name = '사용자가 입력'/> <br>
+        추측횟수는 다음과 같습니다. <input type = 'number' id = 'usercount' size = 10 name = '사용자 시도 횟수' readonly/>
+        <input type = 'button' id = 'check_button' name = '확인' value = '확인' onclick="guess()">
+        힌트입니다. <input type = 'text', id = 'hint', name ='힌트' value = '일단 시도하세요'>
+    </form>
+</body>
+
+</html>

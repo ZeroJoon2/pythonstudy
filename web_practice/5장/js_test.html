@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'test'>
+        
+    </div>
+    <div id = 'user_info'>
+
+    </div>
+
+</body>
+<script>
+    var age = prompt("나이를 입력해주세요.", value = 112313)
+    let age_check = confirm(age + "살 맞나요?")
+    var age_loading = alert("잠시만 기다리세요")
+
+    document.write("안녕하세요. 저는 " + age + "살입니다.");
+
+    document.getElementById('user_info').innerHTML = `
+        <p> 너 나이는  ${age}입니다 ${age_check} </p>
+        
+    `;
+    
+
+    
+</script>
+</html>
+

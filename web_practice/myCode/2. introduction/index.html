@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type = 'text/css' rel="stylesheet" href = './index.css'>
+    <title>ZeroJoon2</title>
+</head>
+<body>
+    <main class = 'container'>
+        <header class = 'main_header'>
+            <h1>
+                한 페이지로 보는 <text style = 'color : rgb(86, 117, 255)'>최영준</text> 소개 페이지👍
+            </h1>
+            <div class = 'typing'>
+                <text style = 'color : rgb(86, 117, 255)'><strong>어느 환경</strong></text>에서도 살아남을 수 있는, <text style = 'color : rgb(86, 117, 255)'><strong>기술</strong></text>과 <text style = 'color : rgb(86, 117, 255)'><strong>통찰력</strong></text>을 겸비한 <text style = 'color : rgb(86, 117, 255)'><strong>전문가</strong></text>
+            </div>
+        <button id="darkModeToggle">다크 모드</button>
+        </header>
+
+
+        <section class="image-container">
+            <div class="image-box">
+                <div class="image-text">마우스를 올려보세요!</div>
+                <img class="profile" src="../img/profile1.jpg" alt="이미지 안보여줌">
+            </div>
+            <div class="image-box">
+                <div class="image-text">마우스를 올려보세요!</div>
+                <img class="profile" src="../img/profile2.jpg" alt="이미지 안보여줌">
+            </div>
+            <div class="image-box">
+                <div class="image-text">마우스를 올려보세요!</div>
+                <img class="profile" src="../img/profile3.jpg" alt="이미지 안보여줌">
+            </div>
+        </section>
+
+        <section class = 'text'>
+            <article>
+                <h2 class = 'header'>🤷‍♀️ 한 줄 소개 </h2>
+                    <div class = 'details'>
+                        저는 <strong class = 'color_font'>Python</strong>으로 <strong class = 'color_font'>데이터 분석</strong>을 잘하는 <strong>최영준</strong>입니다.
+                        <br>
+                        <br>
+                        <div class = 'details_2'> 
+                            ✅더 자세히 알아보기✅
+                            <br>
+                            <div class = 'details_3'> 
+                                <a id = 'gpt_link' href="https://joon2.netlify.app/" target="_blank"><img id = gpt src = '../img/gpt.png'><br>💎 GPT 활용 능력</a>
+    
+                                <a id = 'git_link' href = 'https://github.com/ZeroJoon2' target="_blank"><strong></strong><img id = git src = '../img/git.png'><br>🎴 Git</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </article>
+            <article>
+                <h2 class = 'header'>🤷‍♀️ 현재 관심사</h2>
+                    <div class = 'details'>
+                        <ul class = 'bullet_changed_list'>
+                                <li>python</li>
+                                <li>데이터 분석</li>
+                                <li>BI 시각화</li>
+                                <li>통계</li>                            
+                        </ul>
+                    </div>
+            </article>
+
+            <!--
+            <article>
+                <h2 class = 'header'>
+                    🤷‍♀️ 인생 목표
+                </h2>
+                    <div class = 'details'>
+                        <strong>어느 환경</strong>에서도 살아남을 수 있는, <strong>기술</strong>과 <strong>통찰력</strong>을 겸비한 전문가
+                    </div>
+            </article>
+            -->
+
+            <article>
+                <h2 class = 'header'>
+                    🤷‍♀️ 관심사별 비율
+                </h2>
+                    <div class = 'details'>
+                        <table class = table_all>
+                        <tr class = 'table_header'>
+                                <th>범주</th>
+                                <th>관심분야</th>
+                                <th>집중비율</th>
+                            </tr>
+                            <tr class = 'table_rows'>
+                                <td>프로그래밍</td>
+                                <td>Python Code</td>
+                                <td>40%</td>
+                            </tr>
+
+                            <tr class = 'table_rows'>
+                                <td>사고력</td>
+                                <td>데이터 분석</td>
+                                <td>40%</td>
+                            </tr>
+
+                            <tr class = 'table_rows'>
+                                <td>실행력</td>
+                                <td>통계를 통한 의미 창출</td>
+                                <td>20%</td>
+                            </tr>
+                        </table>
+                    </div>
+            </article>
+        </section>
+    </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        let textElement = document.querySelector('.typing');
+        let text = textElement.textContent
+        textElement.textContent = '';
+        let index = 0
+
+        function typeEffect() {
+            if (index < text.length){
+                textElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+
+        typeEffect()
+    })
+
+
+    // 다크 모드 토글
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+    });
+
+</script>
+
+
+</body>
+</html>
