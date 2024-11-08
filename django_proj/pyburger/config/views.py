@@ -1,11 +1,59 @@
 from django.http  import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from burgers.models import Burger
 
 def main(request):
     return render(request, 'main.html')
 
 def burger_list(request):
-     return render(request, 'burgers.html')
+     burger_query = Burger.objects.all()
+     print(f'전체 햄버거 리스트 : {burger_query}')
+     context = {
+          "burgers": burger_query,
+     }
+     return render(request, 'burgers.html', context)
+
+def burger_search(request):
+    keyword = request.GET.get('keyword')
+    print(keyword)
+    
+    if keyword is not None:
+        search_burger = Burger.objects.filter(name__contains = keyword)
+        
+    else:
+        search_burger = Burger.objects.none()
+
+    context = {
+        'searched_burgers' : search_burger,
+    }
+    return render(request, 'burger_search.html', context)
+    
+def burger_create(request):
+    context = {}  # 빈 context 생성
+    if request.method == 'POST': #POST일때만 데이터 추가
+        add_name = request.POST.get('add_name')
+        add_price = request.POST.get('add_price')
+        add_kcal = request.POST.get('add_kcal')
+        if add_name not in Burger.objects.values_list('name',flat= True):
+            print(add_name, add_price, add_kcal)
+            if add_name and add_price and add_kcal:
+                try:
+                    add_price = int(add_price)
+                    add_kcal = int(add_kcal)
+
+                    Burger.objects.create(name = add_name, price = add_price, calories = add_kcal)
+                    return redirect(burger_list)
+                except ValueError:
+                    context = {'error' : '가격과 칼로리는 숫자로 입력하세요.'}
+                    return render(request, 'burger_create.html', context)
+            else:
+                context = {'error' : f'''{add_name}는 이미 등록된 버거입니다.'''}
+                return render(request, 'burger_create.html', context)
+        else:
+            context = {'error' : '모든 필드를 입력하세요'}
+            return render(request, 'burger_create.html', context)
+            
+    return render(request, 'burger_create.html', context)
 
 # 람다로 표현해도 가능은 한데, 확장성과 가독성에 GPT는 추천하지 않음
 # main = lambda x : render(x,'main.html')

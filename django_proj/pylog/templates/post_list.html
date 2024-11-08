@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 목록</title>
+    <link rel = 'stylesheet' href = "{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div id = 'navbar'>
+        <span><a href = '/'>Pylog</a></span>
+    </div>
+    <div id = 'post-list'>
+        <ul class = 'posts'>
+            {% for i in post_all%}
+            <li class = 'post'>
+                
+                <div>{{i.title}}</div>
+                <p>{{i.content}}</p>
+                
+                <ul class = 'comments'>
+                    {% for j in i.comment_set.all%}
+                        <li class = 'comment'>{{j.content}}</li>
+                    {% empty %}
+                        <li class = 'comment-empty'>아직 댓글이 없습니다.</li>
+                        {% endfor %}
+                </ul>
+                {% if i.thumbnail %}
+                    <img src = '{{i.thumbnail.url}}' alt = '이미지가 안보이네유'>
+                {% else %}
+                    <img src = '' alt = '이미지가 없어요 ~'>
+                {% endif %}
+            </li>
+
+            {% endfor %}
+
+            
+        </ul>
+    </div>
+
+
+</body>
+</html>

@@ -5,100 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>햄버거 메뉴</title>
     <style>
-        /* Reset basic styling */
+        /* Reset and basic styling */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
-        /* Body styling */
+
+        /* Body styling with gradient */
         body {
             font-family: 'Noto Sans', Arial, sans-serif;
-            background: linear-gradient(135deg, #FFAFBD, #ffc3a0);
+            background: linear-gradient(135deg, #f5af19, #f12711);
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 20px;
             color: #333;
+            min-height: 100vh;
         }
 
-        /* Main container styling */
-        .menu-container {
-            max-width: 700px;
-            margin: 20px;
-            padding: 30px;
-            background-color: #ffffff;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        /* Container styling */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 40px;
             border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         /* Title styling */
-        .menu-title {
-            font-size: 32px;
+        h1 {
+            font-size: 2.5em;
             color: #d35400;
             margin-bottom: 20px;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        /* Menu item styling */
+        /* Menu item card styling */
         .menu-item {
-            border-bottom: 1px solid #e0e0e0;
-            padding: 15px 0;
-            transition: background-color 0.3s ease;
-        }
-
-        .menu-item:hover {
-            background-color: #f8f8f8;
+            background-color: #ffffff;
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 15px 0;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         /* Item name styling */
         .item-name {
-            font-size: 20px;
-            font-weight: bold;
-            color: #4A90E2;
-            margin-bottom: 8px;
-        }
-
-        /* Item description styling */
-        .item-description {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 5px;
-            line-height: 1.4;
-        }
-
-        /* Item price styling */
-        .item-price {
-            font-size: 18px;
-            color: #e74c3c;
+            font-size: 1.5em;
+            color: #333;
             font-weight: bold;
         }
 
-        /* Button styling */
-        .order-button {
+        /* Item details styling */
+        .item-details {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        /* Price and calories styling */
+        .item-price,
+        .item-calories {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        /* Search page button styling */
+        .search-button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            color: #fff;
+            margin-top: 20px;
+            padding: 12px 25px;
             background-color: #e74c3c;
-            border-radius: 6px;
+            color: white;
             text-decoration: none;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-
-        .order-button:hover {
+        .search-button:hover {
             background-color: #c0392b;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -106,36 +101,22 @@
     </style>
 </head>
 <body>
-    <div class="menu-container">
-        <div class="menu-item">
-            <div class="item-name">클래식 버거</div>
-            <div class="item-description">신선한 양상추, 토마토, 치즈가 들어간 기본 햄버거</div>
-            <div class="item-price">₩6,000</div>
-        </div>
+    <div class="container">
+        <h1>햄버거 메뉴</h1>
+        
+        <!-- Search Page Link Button -->
+        <a href="/search" class="search-button">버거 검색 페이지로 이동</a>
 
-        <div class="menu-item">
-            <div class="item-name">치즈 버거</div>
-            <div class="item-description">진한 치즈와 육즙 가득한 패티가 조화를 이룬 햄버거</div>
-            <div class="item-price">₩7,000</div>
-        </div>
-
-        <div class="menu-item">
-            <div class="item-name">베이컨 버거</div>
-            <div class="item-description">바삭한 베이컨과 특제 소스가 들어간 햄버거</div>
-            <div class="item-price">₩8,000</div>
-        </div>
-
-        <div class="menu-item">
-            <div class="item-name">스파이시 버거</div>
-            <div class="item-description">매콤한 소스와 신선한 재료가 어우러진 햄버거</div>
-            <div class="item-price">₩7,500</div>
-        </div>
-
-        <div class="menu-item">
-            <div class="item-name">아보카도 버거</div>
-            <div class="item-description">고소한 아보카도가 들어간 프리미엄 햄버거</div>
-            <div class="item-price">₩9,000</div>
-        </div>
+        
+        {% for i in burgers %}
+            <div class="menu-item">
+                <div class="item-name">{{ i.name }}</div>
+                <div class="item-details">
+                    <span class="item-price">가격: {{ i.price }}원</span> |
+                    <span class="item-calories">칼로리: {{ i.calories }}kcal</span>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </body>
 </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버거 추가</title>
+    <style>
+        /* Reset basic styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Form title */
+        h1 {
+            font-size: 2.2em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Input field styling */
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #e67e22;
+            border-radius: 8px;
+            font-size: 1.1em;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* Button styling */
+        .form-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-button:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>버거 추가</h1>
+
+        {% if error %}
+            <script>
+                window.onload = function() {
+                    alert("{{ error }}");
+                };
+            </script>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="add_name" placeholder="버거 이름을 입력하세요" class="form-input">
+            <input type="text" name="add_price" placeholder="버거 가격을 입력하세요" class="form-input">
+            <input type="text" name="add_kcal" placeholder="버거 칼로리를 입력하세요" class="form-input">
+            <button type="submit" class="form-button">등록</button>
+        </form>
+    </div>
+</body>
+</html>
