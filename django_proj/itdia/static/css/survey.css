@@ -1,0 +1,167 @@
+/* 기본 스타일 */
+body, html {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e2ebf0, #f5faff);
+    overflow: hidden;
+}
+.hidden {
+    display: none;
+}
+
+/* 로고 컨테이너 */
+.logo-container {
+    position: absolute;
+    top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.logo {
+    height: 50px;
+    opacity: 0.9;
+}
+
+/* 챗봇 컨테이너 */
+.chatbot-container {
+    width: 90%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 챗봇 메시지 */
+.chat-message {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.bot-message {
+    background: #e0f0ff;
+    color: #005bb5;
+}
+
+.user-message {
+    background: #cce4ff;
+    color: #004080;
+    align-self: flex-end;
+}
+
+/* 메시지 텍스트 스타일 */
+.welcome-text {
+    font-size: 1.2em;
+    color: #005bb5;
+    margin: 0;
+}
+
+.question-text {
+    font-size: 1.5em;
+    color: #003366;
+    margin: 10px 0 0;
+    font-weight: bold;
+}
+
+/* 옵션 버튼 */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.option-btn {
+    background: #005bb5;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.option-btn:hover {
+    background: #004080;
+    transform: scale(1.05);
+}
+
+.option-btn:active {
+    transform: scale(0.95);
+}
+
+/* 회원가입 폼 */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.registration-form label {
+    font-weight: bold;
+    color: #005bb5;
+}
+
+.registration-form input {
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.registration-form input::placeholder {
+    color : #7c7c7c86;
+    font-style: italic;
+}
+
+.submit-btn, .send-code-btn, .verify-btn {
+    background: #005bb5;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover, .send-code-btn:hover, .verify-btn:hover {
+    background: #004080;
+}
+
+/* 로딩 메시지 */
+#loading-message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #005bb5;
+}
+
+.small_talk{
+    font-size : 12px;
+    margin : 0px;
+    color : #333333;
+    font-style: oblique;
+}
+/* 애니메이션 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}

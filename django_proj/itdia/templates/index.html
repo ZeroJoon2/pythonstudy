@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>itdia - 인도와 한국을 연결하는 SW 외주 플랫폼</title>
+    <meta name="description" content="itdia는 한국의 중소기업과 인도의 프리랜서 소프트웨어 엔지니어를 연결하는 신뢰할 수 있는 플랫폼입니다.">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>itdia</h1>
+                <p>인도와 한국을 연결하는 신뢰할 수 있는 SW 외주 플랫폼</p>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#about">소개</a></li>
+                    <li><a href="#register">이력서 등록</a></li>
+                    <li><a href="#find-job">업무 찾기</a></li>
+                    <li><a href="#find-company">회사 찾기</a></li>
+                </ul>
+            </nav>
+            <div class="language-switch">
+                <button onclick="window.location.href='/ko/'" class="lang-btn">한국어</button>
+                <button onclick="window.location.href='/en/'" class="lang-btn">English</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="overlay">
+        <div class="hero-content">
+            <h2>한국과 인도를 잇는 SW 외주 솔루션</h2>
+            <p>itdia는 인도 IT 인재와 한국 중소기업을 연결하여 <br>성공적인 프로젝트를 수행할 수 있도록 돕습니다.</p>
+            <button onclick="window.location.href='/survey'" class="cta-btn">지금 시작하기</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 itdia</p>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '0')) {
+            event.preventDefault();
+        }
+    });
+
+    window.addEventListener('wheel', function(event) {
+        if (event.ctrlKey || event.metaKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+</script>
+
+</html>

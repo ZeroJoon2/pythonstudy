@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Registration - itdia</title>
+    <link rel="stylesheet" href="{% static 'css/survey.css' %}">
+    <script>
+        // 비밀번호 유효성 검사 함수
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            const passwordPattern = /^(?=.*[!@#$%^&*()_\-+={}[\]|:;"'<>,.?/~`]).{8,16}$/;
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must be 8-16 characters long and include at least one special character.");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header class="logo-container">
+        <img src="{% static 'img/logo.png' %}" alt="itdia Logo" class="logo">
+    </header>
+    
+    <div class="chatbot-container">
+        <div class="chat-message bot-message">
+            <p>You're almost done! Please set up your account details below.</p>
+        </div>
+
+        <!-- 추가 입력 필드 -->
+        <form action="/survey/complete_registration/" method="post" class="registration-form" onsubmit="return validatePassword()">
+            {% csrf_token %}
+            
+            <label for="password">Password<br>
+            <p class = 'small_talk'>
+                (8-16 characters, including at least one special character)
+            </p>
+            </label>
+            
+            <input type="password" id="password" name="password" class="input-field" required placeholder="ex) A!123456789">
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="input-field" required placeholder="one more please">
+
+            <label for="nickname">Nickname<br>
+            <p class = 'small_talk'>(up to 20 characters)</p>
+            </label>
+            <input type="text" id="nickname" name="nickname" class="input-field" maxlength="20" required placeholder="the best Fronteer">
+
+            <button type="submit" class="submit-btn">Complete Registration</button>
+        </form>
+    </div>
+</body>
+</html>

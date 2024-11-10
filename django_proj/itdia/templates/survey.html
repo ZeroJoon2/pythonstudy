@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey - itdia</title>
+    <link rel="stylesheet" href="{% static 'css/survey.css' %}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+    <header class="logo-container">
+        <img src="{% static 'img/logo.png' %}" alt="itdia Logo" class="logo">
+    </header>
+    
+    <div class="chatbot-container">
+        <div class="chat-message bot-message">
+            <p class="welcome-text">Welcome! Are you here to...</p>
+            <p class="question-text"><strong>Be a go-getter with a mission</strong> or <strong>Hire a highflier</strong>?</p>
+        </div>
+        <div class="options">
+            <button class="option-btn" onclick="startRegistration()">Be a Go-Getter with a Mission</button>
+            <button class="option-btn" onclick="selectOption('hire-highflier')">Hire a Highflier</button>
+        </div>
+    </div>
+
+    <script>
+        function getCSRFToken() {
+            return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        }
+
+        function startRegistration() {
+            const container = document.querySelector('.chatbot-container');
+            
+            // 초기 메시지
+            container.innerHTML = `
+                <div class="chat-message user-message">
+                    <p>You selected: Be a Go-Getter with a Mission</p>
+                </div>`;
+            
+            // 챗봇 메시지 순차적으로 표시
+            setTimeout(() => {
+                container.innerHTML += `
+                <div class="chat-message bot-message">
+                    <p>Great choice! Let’s complete your mission by registering.</p>
+                </div>`;
+            }, 1000);
+
+            setTimeout(() => {
+                container.innerHTML += `
+                    <div class="chat-message bot-message">
+                        <p>Please verify your email to proceed:</p>
+                        <form id="registration-form" class="registration-form" action="/survey/send_verification_code/" method="post">
+                            {% csrf_token %}
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                            <button type="submit">Send Verification Code</button>
+                        </form>
+                    </div>
+
+                `;
+            }, 2000);
+        }
+
+        function sendVerificationCode() {
+            const email = document.getElementById('email').value;
+            const csrfToken = getCSRFToken();
+
+            // 이메일 형식 검증
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            fetch('/send_verification_code/', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message));
+        }
+
+        function verifyCode() {
+            const verificationCode = document.getElementById('verification_code').value;
+            const csrfToken = getCSRFToken();
+
+            fetch('/verify_code/', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({ verification_code: verificationCode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.verified) {
+                    alert('Email verified successfully!');
+                    document.getElementById('additional-fields').classList.remove('hidden');
+                } else {
+                    alert('Incorrect verification code. Please try again.');
+                }
+            });
+        }
+
+        function selectOption(choice) {
+            const container = document.querySelector('.chatbot-container');
+            container.innerHTML = `
+                <div class="chat-message user-message">
+                    <p>You selected: ${choice === 'go-getter' ? 'Be a Go-Getter with a Mission' : 'Hire a Highflier'}</p>
+                </div>`;
+            
+            setTimeout(() => {
+                container.innerHTML += `
+                <div class="chat-message bot-message">
+                    <p>Great choice! Let's proceed with the next question...</p>
+                </div>`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
