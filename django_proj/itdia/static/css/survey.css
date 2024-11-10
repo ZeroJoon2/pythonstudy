@@ -1,3 +1,134 @@
+/****************************************/
+/*************공통************************/
+/****************************************/
+
+/* 기본 스타일 */
+html {
+    cursor: none;
+
+}
+
+
+
+/* 잔상 효과를 위한 이미지 스타일 */
+.cursor-trail {
+    width: 50px; /* 이미지 크기 */
+    height: 50px;
+    border-radius: 100%;
+    border-color: black solid 3px;
+    position: absolute;
+    pointer-events: none;
+    transition: transform 0.15s ease; /* 부드러운 이동 */
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    opacity: 0.7; /* 잔상 효과를 위한 약간의 투명도 */
+}
+
+/* 클릭 시 pulse 애니메이션 */
+.cursor-trail.pulse {
+    animation: pulse 0.3s ease-out infinite; /* pulse 애니메이션 적용 */
+}
+
+/* pulse 애니메이션 */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2); /* 확대 */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* 각 잔상 이미지의 투명도 조정 */
+#cursorTrail1 {
+    opacity: 1;
+}
+#cursorTrail2 {
+    opacity: 0.5;
+}
+
+/* 기본 스크롤바 디자인 설정 */
+body {
+    scrollbar-width: thin; /* Firefox에서 얇은 스크롤바 */
+    scrollbar-color: rgb(0, 0, 0) transparent; /* Firefox: 스크롤바와 트랙 색상 */
+}
+
+/* Webkit 기반 브라우저 (Chrome, Safari)용 스크롤바 디자인 */
+body::-webkit-scrollbar {
+    width: 8px; /* 세로 스크롤바 너비 */
+}
+
+/* 스크롤 트랙 스타일 */
+body::-webkit-scrollbar-track {
+    background: transparent; /* 투명한 트랙 */
+    margin: 4px 0; /* 트랙 위아래 여백 추가 */
+}
+
+/* 스크롤바 핸들 디자인 */
+body::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0); /* 스크롤바 색상 */
+    border-radius: 10px; /* 둥근 모서리 */
+    transition: background 0.3s ease; /* 배경 전환 효과 */
+}
+
+/* 스크롤바 핸들 호버 시 스타일 */
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(0, 0, 0); /* 호버 시 색상 진하게 */
+}
+
+/* 스크롤바의 상하 버튼 숨기기 */
+body::-webkit-scrollbar-button {
+    display: none; /* 버튼 숨기기 */
+}
+
+
+/* 클릭 가능한 요소 위에서 커서 숨기기 */
+a:hover, button:hover, .clickable:hover {
+    cursor: none;
+}
+
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    header .logo h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul li {
+        margin: 10px 0;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .cta-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+/****************************************/
+/*************공통************************/
+/****************************************/
+
 /* 기본 스타일 */
 body, html {
     font-family: 'Arial', sans-serif;

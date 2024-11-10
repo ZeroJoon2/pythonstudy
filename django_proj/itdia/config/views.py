@@ -3,10 +3,13 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.utils.crypto import get_random_string
 from django.conf import settings
-import logging
 
-# 로그 설정
-logger = logging.getLogger(__name__)
+#404 에러 반환
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
+#500 에러 반환
+def custom_500_view(request):
+    return render(request, '500.html', status=500)
 
 def index(request):
     return render(request, 'index.html')

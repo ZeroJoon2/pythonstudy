@@ -4,23 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>itdia - 인도와 한국을 연결하는 SW 외주 플랫폼</title>
+    <title>ITdia</title>
     <meta name="description" content="itdia는 한국의 중소기업과 인도의 프리랜서 소프트웨어 엔지니어를 연결하는 신뢰할 수 있는 플랫폼입니다.">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
+
+    <!-- 잔상 효과를 위한 여러 개의 이미지 -->
+    <img src="{% static 'img/flag_cursor.png' %}" alt="Cursor Image" class="cursor-trail" id="cursorTrail1">
+    <img src="{% static 'img/flag_cursor.png' %}" alt="Cursor Image" class="cursor-trail" id="cursorTrail2">
+    
+    
+    
     <header>
         <div class="container">
             <div class="logo">
-                <h1>itdia</h1>
-                <p>인도와 한국을 연결하는 신뢰할 수 있는 SW 외주 플랫폼</p>
+                <h1>ITdia</h1>
+                <p>India’s IT Power, Fueling Korea’s Innovation</p>
             </div>
             <nav class="menu">
                 <ul>
-                    <li><a href="#about">소개</a></li>
-                    <li><a href="#register">이력서 등록</a></li>
-                    <li><a href="#find-job">업무 찾기</a></li>
-                    <li><a href="#find-company">회사 찾기</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#register">Be a Go-Getter</a></li>
+                    <li><a href="#find-job">Get a Mission</a></li>
+                    <li><a href="#find-company">Partner with Top Companies</a></li>
                 </ul>
             </nav>
             <div class="language-switch">
@@ -32,29 +40,75 @@
 
     <div class="overlay">
         <div class="hero-content">
-            <h2>한국과 인도를 잇는 SW 외주 솔루션</h2>
-            <p>itdia는 인도 IT 인재와 한국 중소기업을 연결하여 <br>성공적인 프로젝트를 수행할 수 있도록 돕습니다.</p>
-            <button onclick="window.location.href='/survey'" class="cta-btn">지금 시작하기</button>
+            <h2>India’s IT Power, Fueling Korea’s Innovation</h2>
+            <p>ITdia links India’s best developers with Korea’s software needs, delivering success for Korean businesses.</p>
+            <button onclick="window.location.href='/survey'" class="cta-btn">Start Right Now!</button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 itdia</p>
+        <p>&copy; 2024 ITdia</p>
     </footer>
 </body>
 
 <script>
-    document.addEventListener('keydown', function(event) {
-        if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '0')) {
-            event.preventDefault();
-        }
+/****************************************/
+/*************공통************************/
+/****************************************/
+    // 잔상 효과를 위한 이미지 요소 배열
+    const trails = [
+        document.getElementById("cursorTrail1"),
+        document.getElementById("cursorTrail2"),
+
+    ];
+
+    // 마우스 이동 이벤트 리스너 추가
+    document.addEventListener("mousemove", (event) => {
+        const mouseX = event.pageX;
+        const mouseY = event.pageY;
+
+        // 각 잔상 이미지가 약간 늦게 마우스를 따라오게 설정
+        trails.forEach((trail, index) => {
+            setTimeout(() => {
+                trail.style.left = `${mouseX}px`;
+                trail.style.top = `${mouseY}px`;
+            }, index * 50); // 각 잔상이 약간씩 딜레이되도록 설정
+        });
     });
+
 
     window.addEventListener('wheel', function(event) {
         if (event.ctrlKey || event.metaKey) {
             event.preventDefault();
         }
     }, { passive: false });
+
+    // 클릭 시 pulse 애니메이션 적용
+    document.addEventListener("mousedown", () => {
+        trails.forEach(trail => {
+            trail.classList.add("pulse");
+        });
+    });
+
+    document.addEventListener("mouseup", () => {
+        trails.forEach(trail => {
+            trail.classList.remove("pulse");
+        });
+    });
+
+    // 클릭 가능한 요소 위에 있을 때 pulse 효과 추가
+    document.querySelectorAll("a, button, .clickable").forEach(element => {
+        element.addEventListener("mouseover", () => {
+            trails.forEach(trail => trail.classList.add("pulse"));
+        });
+        element.addEventListener("mouseout", () => {
+            trails.forEach(trail => trail.classList.remove("pulse"));
+        });
+    });
+/****************************************/
+/*************공통************************/
+/****************************************/
+
 </script>
 
 </html>
