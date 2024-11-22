@@ -71,25 +71,33 @@ for i in frame3:
     # 공고 들어가기
     post_link.click()
 
-    # 새 페이지 로드 대기
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "container")))  # 적절한 기준 요소 사용
-
-
     # 공고 들어가서 HTML 불러오기
     res = requests.get(post_url)
-    #print(f'res : {res}')
+    #print(f'res : {res.text}')
 
     soup = BeautifulSoup(res.text, 'html.parser')
-    #print(soup)
-    price = soup.select_one("th:has(p:-soup-contains('추정가격'))+td .tb_inner")
+    print(soup)
+    supplier = soup.select_one("th:has(p:-soup-contains('supplier'))+td .tb_inner")
+
+    # if supplier.text.strip() == '한국전력공사':
+    #     estimate_price = i.
+
+
+    # if 
+
+
+#container > div:nth-child(12) > table > tbody > tr:nth-child(2) > td:nth-child(4) > div
+#dmdgPrdpay    
+    
 
     if price : 
         price = price.text.strip()
+        print(f'''
+            여기
+            {price}
+            *******
+              ''')
     else:
         price = '없음'
 
-
-    
-
-#container > div:nth-child(12) > table > tbody > tr:nth-child(2) > td:nth-child(4) > div
-#dmdgPrdpay
+# 값이 나오면 df로 바꿔봐야함
