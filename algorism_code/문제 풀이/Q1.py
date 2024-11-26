@@ -30,68 +30,44 @@ def getMaxSum(numData): # 요구 사항에 맞춰 처리된 2차원 정수 배�
     maxSum = 0 # 최대합
 
     ###########   여기부터 코딩 (2) ---------------->
-    #print(f'여기{numData}')
-    tmp_all_list = []
-    tmp_0_list = []
-    tmp_1_list = []
-    tmp_2_list = []
-    tmp_3_list = []
-    tmp_4_list = []
-    for num, i in enumerate(numData):
-        #print(i)
-        for num2, j in enumerate(i):          
-             if num2 % 5 == 0:
-                  tmp_0_list.append(i[num2])
-                #   print(f'나머지 0 : {i[num2]}')
-                  
-             elif num2 % 5 == 1:
-                  tmp_1_list.append(i[num2])
-                #   print(f'나머지 1 : {i[num2]}')
-                  
-
-             elif num2 % 5 == 2:
-                  tmp_2_list.append(i[num2])
-                #   print(f'나머지 2 : {i[num2]}')
-                  
-
-             elif num2 % 5 == 3:
-                  tmp_3_list.append(i[num2])
-                #   print(f'나머지 3 : {i[num2]}')
-                  
-
-             elif num2 % 5 == 4:
-                  tmp_4_list.append(i[num2])
-                #   print(f'나머지 4 : {i[num2]}')
-    tmp_all_list.append(tmp_0_list)
-    tmp_all_list.append(tmp_1_list)
-    tmp_all_list.append(tmp_2_list)
-    tmp_all_list.append(tmp_3_list)
-    tmp_all_list.append(tmp_4_list)
-#     print(numData[0][0])
-#     print(numData[1][0])
-
-#     print(tmp_all_list[0][0])
-#     print(tmp_all_list[1][0])
+    # 4개의 숫자가 하나의 박스
+    minRange_r = 0
+    MaxRange_r = 2
+    minRange_c = 0
+    MaxRange_c = 2
     
-#     print(numData[1][1])
-#     print(tmp_all_list[1][1])
+    #sum_list에 따로 보관하면 위치도 어느정도 추적할 수 있을듯
+    sum_list = []
 
+    # row를 기준으로 박스 상단의 위치가 3 초과되면 박스 못그림
+    while minRange_r <= 3:
+      minRange_c = 0
+      MaxRange_c = 2
 
-#     print(
-#          + numData[0][0]
-#          + numData[1][0]
-#          + tmp_all_list[0][0]
-#          + tmp_all_list[1][0]
-#          + numData[1][1]
-#          + tmp_all_list[1][1]
-#          - numData[0][0]
-#          - numData[1][1]
+      # column을 기준으로 박스 왼쪽의 위치가 3 초과되면 박스 못그림
+      while minRange_c <= 3:
+        temp_list = []
+        for i in range(minRange_r, MaxRange_r):
+            # print(f'i ::: {i}')
+            for j in range(minRange_c, MaxRange_c):
+                  # print(f'numData[i][j] : {numData[i][j]}')
+                  temp_list.append(numData[i][j])
 
-#          )
-#     print("************")
-    for x, y in zip(range(6), range(6)):
-         print(x, y)
+        # print(temp_list)
+        sum_list.append(sum(temp_list))
+        # print("*************")
+        # 박스 우측으로 하나씩 옮기기
+        minRange_c += 1
+        MaxRange_c += 1
+      # 박스 하단으로 하나씩 옮기기
+      minRange_r += 1
+      MaxRange_r += 1
+    
+    # print(f'박스들의 합 : {sum_list}')
+    # print(f'박스들 중 최고값 : {max(sum_list)}')
 
+    # 정답을 위한 변수에 할당해줌
+    maxSum = max(sum_list)
     ###########   <-------------- 여기까지 코딩 (2)
 
     return maxSum
